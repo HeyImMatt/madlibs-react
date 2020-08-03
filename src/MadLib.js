@@ -6,7 +6,10 @@ const MadLib = () => {
   const [story, handleChange, resetFormData] = useFormFields({name: 'select story'})
   
   return (
+    <>
+    <h2>Mad Libs!</h2>
     <MadLibForm story={story} handleChange={handleChange} />
+    </>
   )
 }
 
