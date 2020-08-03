@@ -1,19 +1,38 @@
 import React from 'react';
 
-const MadLibForm = ( { story, handleChange} ) => {
+const MadLibForm = ( { userWords, wordsFormHandleChange, submitUserWords} ) => {
   return (
-    <>
-      <label htmlFor="story-select">Choose your Mad Lib!</label>
-      <select id="story-select" name="name" value={story.name} onChange={handleChange}>
-        <option value='select story' disabled hidden>Select Story...</option>
-        <option value='1'>Story 1</option>
-        <option value='2'>Story 2</option>
-        <option value='3'>Story 3</option>
-      </select>
-      <form>
-
-      </form>
-    </>
+    <form onSubmit={submitUserWords}>
+      <label htmlFor="name1">Person's Name:</label>
+      <input type="text"
+      id="name1"
+      name="name1"
+      value={userWords.name1}
+      onChange={wordsFormHandleChange}
+      />
+      <label htmlFor="adj1">Adjective:</label>
+      <input type="text"
+      id="adj1"
+      name="adj1"
+      value={userWords.adj1}
+      onChange={wordsFormHandleChange}
+      />
+      <label htmlFor="noun1">Noun:</label>
+      <input type="text"
+      id="noun1"
+      name="noun1"
+      value={userWords.noun1}
+      onChange={wordsFormHandleChange}
+      />
+      <label htmlFor="verb1">Verb:</label>
+      <input type="text"
+      id="verb1"
+      name="verb1"
+      value={userWords.verb1}
+      onChange={wordsFormHandleChange}
+      />
+      <button>Show Story!</button>
+    </form>
   )
 }
 
