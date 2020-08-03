@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import useToggleState from './hooks/useToggleState'
 import useFormFields from './hooks/useFormFields';
 import MadLibForm from './MadLibForm';
 import MadLibStory from './MadLibStory';
 
 const MadLib = () => {
+  const [showMadLib, setShowMadLib] = useToggleState(false);
+  const [showForm, setShowForm] = useToggleState(true);
   const [storyWords, setStoryWords] = useState([]);
   //const [story, handleChange] = useFormFields({name: 'select story'})
   const [userWords, wordsFormHandleChange, wordsFormResetFormData] = useFormFields({
@@ -15,8 +18,10 @@ const MadLib = () => {
 
   const submitUserWords = (e) => {
     e.preventDefault();
-    setStoryWords((storyWords)=> ([...storyWords, userWords]))
-    wordsFormResetFormData()
+    setStoryWords((storyWords)=> ([...storyWords, userWords]));
+    setShowMadLib(true);
+    setShowForm(false);
+    wordsFormResetFormData();
   }
   //Render different form fields based on selected story
   // useEffect(() => {
@@ -35,11 +40,11 @@ const MadLib = () => {
       <option value='2'>Story 2</option>
       <option value='3'>Story 3</option>
     </select> */}
-    <MadLibForm 
+    {showForm && <MadLibForm 
     userWords={userWords} 
     wordsFormHandleChange={wordsFormHandleChange} 
-    submitUserWords={submitUserWords} />
-    {storyWords.length > 0 ? <MadLibStory storyWords={storyWords[0]} /> : ''}
+    submitUserWords={submitUserWords} />}
+    {showMadLib && <MadLibStory storyWords={storyWords[0]} />}
     </>
   )
 }
