@@ -5,9 +5,9 @@ const storyData = [
     text: ['This is a ', ' story called ', ' and it ', '!']
   },
   {
-    title: 'yeaaa',
+    title: 'Seinfeld Story',
     inputWords: {name: '', adj1: '', noun1: '', verb1: ''},
-    text: ['Hello ', ' ! This is a ', ' story about nothing! It is basically ', '. So stop ',' and pay attention!']
+    text: ['Hello ', ' ! This is a ', ' story about nothing! It is basically a bunch of ', '. So stop ',' and read it!']
   },
 ]
 
