@@ -11,9 +11,10 @@ const useFormFields = (initialState) => {
     }));
   };
 
-  const resetFormData = () => {
-    setFormData(initialState);
+  const resetFormData = (formObj) => {
+    setFormData(formObj);
   };
+
   return [formData, handleChange, resetFormData]
 };
 
