@@ -1,12 +1,12 @@
 const storyData = [
   {
     title: 'One Sentence Wonder',
-    inputWords: {adj1: '', name: '', verb1: ''},
+    inputWords: {Adjective: '', Name: '', Verb: ''},
     text: ['This is a ', ' story called ', ' and it ', '!']
   },
   {
     title: 'Seinfeld Story',
-    inputWords: {name: '', adj1: '', noun1: '', verb1: ''},
+    inputWords: {Name: '', Adjective: '', Noun: '', Verb: ''},
     text: ['Hello ', ' ! This is a ', ' story about nothing! It is basically a bunch of ', '. So stop ',' and read it!']
   },
 ]

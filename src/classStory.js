@@ -1,17 +1,17 @@
 import storyData from './storyData'
 
 export default class Story {
-  constructor(inputWords, text) {
-    this.inputWords = inputWords;
-    this.text = text;
+  constructor(inputWords, title) {
+    this.inputWords = Object.values(inputWords);
+    this.title = title;
   }
 
   generateStory() {
-    const userWords = Object.values(this.inputWords);
+    const text = this.getText();
   
-    return this.text.reduce((acc, fragment, idx) => {
-      if (idx < userWords.length) {
-        return acc += fragment + userWords[idx];
+    return text.reduce((acc, fragment, idx) => {
+      if (idx < this.inputWords.length) {
+        return acc += fragment + this.inputWords[idx];
       }
       return acc += fragment;
     }, '')
@@ -22,6 +22,14 @@ export default class Story {
       acc[idx + 1] = story.title;
       return acc;
     }, {})
+  }
+
+  getText() {
+    for (let story of storyData) {
+      if (this.title === story.title) {
+        return story.text;
+      }
+    }
   }
 
 }
