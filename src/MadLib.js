@@ -12,6 +12,7 @@ const MadLib = () => {
   const [showForm, setShowForm] = useState(false);
   const [storyTitle, setStoryTitle] = useState('select story')
   const [userWords, wordsFormHandleChange, wordsFormResetFormData] = useFormFields({})
+  const [madLibText, setMadLibText] = useState('');
 
   const handleTitleSelect = (e) => {
     setStoryTitle(e.target.value);
@@ -19,8 +20,8 @@ const MadLib = () => {
 
   const submitUserWords = (e) => {
     e.preventDefault();
-    const userMadLib = new Story(userWords, storyTitle)
-    console.log(userMadLib.generateStory())
+    let userMadLib = new Story(userWords, storyTitle)
+    setMadLibText(userMadLib.generateStory());
     setShowMadLib(true);
     setShowForm(false);
     wordsFormResetFormData();
@@ -50,7 +51,7 @@ const MadLib = () => {
     userWords={userWords} 
     wordsFormHandleChange={wordsFormHandleChange} 
     submitUserWords={submitUserWords} />}
-    {/* {showMadLib && <MadLibStory />} */}
+    {showMadLib && <MadLibStory madLibText={madLibText} storyTitle={storyTitle} />}
     </>
   )
 }
