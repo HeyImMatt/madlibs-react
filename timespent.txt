@@ -6,7 +6,7 @@ End:
 
 Total time: 
 Conceptual Questions:
-Add Commas Function:
-Madlibs Code: 
+Add Commas Function and Tests: 1 hour
+Madlibs Code and Tests: 
 
 Target time: 10-15 hours
