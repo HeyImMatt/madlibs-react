@@ -1,8 +1,9 @@
 import React from 'react';
+import './MadLibForm.css'
 
 const MadLibForm = ( { userWords, wordsFormHandleChange, submitUserWords} ) => {
   return (
-    <form onSubmit={submitUserWords}>
+    <form id="mad-libs-form" onSubmit={submitUserWords}>
       {Object.keys(userWords).map((wordType, idx) => (
       <input 
       key={idx}

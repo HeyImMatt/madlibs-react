@@ -29,6 +29,12 @@ const MadLib = () => {
     setShowStorySelect(false);
     wordsFormResetFormData();
   }
+
+  const startOver = () => {
+    setShowMadLib(false);
+    setShowStorySelect(true);
+    setStoryTitle('select story');
+  }
   
   //Render different form fields based on selected story
   useEffect(() => {
@@ -54,7 +60,7 @@ const MadLib = () => {
     wordsFormHandleChange={wordsFormHandleChange} 
     submitUserWords={submitUserWords}
     />}
-    {showMadLib && <MadLibStory madLibText={madLibText} storyTitle={storyTitle} />}
+    {showMadLib && <MadLibStory madLibText={madLibText} storyTitle={storyTitle} startOver={startOver} />}
     </>
   )
 }
