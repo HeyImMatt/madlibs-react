@@ -5,6 +5,7 @@ import MadLibForm from './MadLibForm';
 import MadLibStory from './MadLibStory';
 import Story from './classStory'
 import storyData from './storyData'
+import { v4 as uuidv4 } from 'uuid';
 
 const MadLib = () => {
   const titles = Story.generateTitles();
@@ -13,11 +14,11 @@ const MadLib = () => {
   const [storyTitle, setStoryTitle] = useState('select story')
   const [userWords, wordsFormHandleChange, wordsFormResetFormData] = useFormFields({})
   const [madLibText, setMadLibText] = useState('');
-
+  
   const handleTitleSelect = (e) => {
     setStoryTitle(e.target.value);
   }
-
+  
   const submitUserWords = (e) => {
     e.preventDefault();
     let userMadLib = new Story(userWords, storyTitle)
@@ -26,7 +27,7 @@ const MadLib = () => {
     setShowForm(false);
     wordsFormResetFormData();
   }
-
+  
   //Order matters for hooks and state so try moving this up 
   //Render different form fields based on selected story
   useEffect(() => {
@@ -46,12 +47,13 @@ const MadLib = () => {
     <label htmlFor="story-select">Choose your Mad Lib!</label>
     <select id="story-select" value={storyTitle} onChange={handleTitleSelect}>
       <option value='select story' disabled hidden>Select Story...</option>
-      {Object.values(titles).map((title, idx) => (<option id={idx + 1} value={title}>{title}</option>)) }
+      {Object.values(titles).map((title, idx) => (<option id={idx + 1} value={title} key={uuidv4()}>{title}</option>)) }
     </select>
     {showForm && <MadLibForm 
     userWords={userWords} 
     wordsFormHandleChange={wordsFormHandleChange} 
-    submitUserWords={submitUserWords} />}
+    submitUserWords={submitUserWords}
+    />}
     {showMadLib && <MadLibStory madLibText={madLibText} storyTitle={storyTitle} />}
     </>
   )

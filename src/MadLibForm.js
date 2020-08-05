@@ -3,8 +3,9 @@ import React from 'react';
 const MadLibForm = ( { userWords, wordsFormHandleChange, submitUserWords} ) => {
   return (
     <form onSubmit={submitUserWords}>
-      {Object.keys(userWords).map((wordType) => (
+      {Object.keys(userWords).map((wordType, idx) => (
       <input 
+      key={idx}
       type="text"
       placeholder={wordType}
       name={wordType}
