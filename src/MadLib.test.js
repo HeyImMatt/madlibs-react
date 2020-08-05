@@ -5,3 +5,8 @@ import MadLib from './MadLib';
 it('will render without crashing', () => {
   render(<MadLib />)
 })
+
+it("matches snapshot", () => {
+  const { asFragment } = render(<MadLib />);
+  expect(asFragment()).toMatchSnapshot();
+});

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <h2>
+    Mad Libs!
+  </h2>
+  <label
+    for="story-select"
+  >
+    Choose your Mad Lib
+  </label>
+  <select
+    id="story-select"
+  >
+    <option
+      disabled=""
+      hidden=""
+      value="select story"
+    >
+      Select Story...
+    </option>
+    <option
+      id="1"
+      value="One Sentence Wonder"
+    >
+      One Sentence Wonder
+    </option>
+    <option
+      id="2"
+      value="Seinfeld Story"
+    >
+      Seinfeld Story
+    </option>
+  </select>
+</DocumentFragment>
+`;
