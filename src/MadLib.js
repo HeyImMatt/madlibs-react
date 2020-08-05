@@ -3,13 +3,14 @@ import useToggleState from './hooks/useToggleState'
 import useFormFields from './hooks/useFormFields';
 import MadLibForm from './MadLibForm';
 import MadLibStory from './MadLibStory';
+import StorySelect from './StorySelect'
 import Story from './classStory'
 import storyData from './storyData'
-import { v4 as uuidv4 } from 'uuid';
 
 const MadLib = () => {
   const titles = Story.generateTitles();
   const [showMadLib, setShowMadLib] = useToggleState(false);
+  const [showStorySelect, setShowStorySelect] = useToggleState(true);
   const [showForm, setShowForm] = useState(false);
   const [storyTitle, setStoryTitle] = useState('select story')
   const [userWords, wordsFormHandleChange, wordsFormResetFormData] = useFormFields({})
@@ -25,6 +26,7 @@ const MadLib = () => {
     setMadLibText(userMadLib.generateStory());
     setShowMadLib(true);
     setShowForm(false);
+    setShowStorySelect(false);
     wordsFormResetFormData();
   }
   
@@ -44,11 +46,10 @@ const MadLib = () => {
   return (
     <>
     <h2>Mad Libs!</h2>
-    <label htmlFor="story-select">Choose your Mad Lib!</label>
-    <select id="story-select" value={storyTitle} onChange={handleTitleSelect}>
-      <option value='select story' disabled hidden>Select Story...</option>
-      {Object.values(titles).map((title, idx) => (<option id={idx + 1} value={title} key={uuidv4()}>{title}</option>)) }
-    </select>
+    {showStorySelect && <StorySelect 
+    titles={titles}
+    storyTitle={storyTitle} 
+    handleTitleSelect={handleTitleSelect}/>}
     {showForm && <MadLibForm 
     userWords={userWords} 
     wordsFormHandleChange={wordsFormHandleChange} 
