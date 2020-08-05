@@ -11,7 +11,7 @@ export default class Story {
   
     return text.reduce((acc, fragment, idx) => {
       if (idx < this.inputWords.length) {
-        return acc += fragment + this.inputWords[idx];
+        return acc += fragment + this.inputWords[idx].toLowerCase();
       }
       return acc += fragment;
     }, '')

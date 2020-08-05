@@ -30,7 +30,6 @@ const MadLib = () => {
     wordsFormResetFormData();
   }
   
-  //Order matters for hooks and state so try moving this up 
   //Render different form fields based on selected story
   useEffect(() => {
     if (storyTitle !== 'select story') {

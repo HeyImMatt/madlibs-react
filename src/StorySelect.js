@@ -1,4 +1,5 @@
 import React from 'react';
+import './StorySelect.css'
 
 export default function StorySelect( {titles, storyTitle, handleTitleSelect}) {
   return (
