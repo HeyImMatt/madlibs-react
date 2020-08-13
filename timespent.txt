@@ -1,0 +1,12 @@
+Time Spent
+
+Start: 10:50 am - 8/3/2020
+
+End: 11:05 am - 8/5/2020
+
+Total time: 11 hours
+Conceptual Questions: 1 hour
+Add Commas Function and Tests: 1 hour
+Madlibs Code and Tests: 9 hours
+
+Target time: 10-15 hours

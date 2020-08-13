@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MadLibForm Tests matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    id="mad-libs-form"
+  >
+    <input
+      name="0"
+      placeholder="0"
+      required=""
+      type="text"
+      value=""
+    />
+    <input
+      name="1"
+      placeholder="1"
+      required=""
+      type="text"
+      value=""
+    />
+    <input
+      name="2"
+      placeholder="2"
+      required=""
+      type="text"
+      value=""
+    />
+    <input
+      name="3"
+      placeholder="3"
+      required=""
+      type="text"
+      value=""
+    />
+    <button>
+      Show Story!
+    </button>
+  </form>
+</DocumentFragment>
+`;
